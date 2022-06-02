@@ -1,10 +1,14 @@
+// ignore_for_file: prefer_const_constructors
+
 import 'package:flutter/material.dart';
 import 'package:ramadhan_portfolio/constants.dart';
 
 import 'components/side_menu.dart';
 
 class MainScreen extends StatelessWidget {
-  const MainScreen({Key? key}) : super(key: key);
+  const MainScreen({Key? key, required this.children}) : super(key: key);
+
+  final List<Widget> children;
 
   @override
   Widget build(BuildContext context) {
@@ -17,8 +21,10 @@ class MainScreen extends StatelessWidget {
               Expanded(flex: 2, child: SideMenu()),
               Expanded(
                   flex: 7,
-                  child: Container(
-                    color: Colors.blue,
+                  child: SingleChildScrollView(
+                    child: Column(
+                      children: [...children],
+                    ),
                   )),
             ],
           ),

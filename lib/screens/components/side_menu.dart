@@ -1,10 +1,12 @@
+// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables
+
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:ramadhan_portfolio/constants.dart';
 import 'package:ramadhan_portfolio/screens/components/area_info_text.dart';
 
 import '../../coding.dart';
-import '../../components/animated_progress_indicator.dart';
+import '../../knowledges.dart';
 import '../../skills.dart';
 import 'my_info.dart';
 
@@ -39,54 +41,60 @@ class SideMenu extends StatelessWidget {
                       Skills(),
                       SizedBox(height: defaultPadding),
                       Coding(),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: [
-                          Divider(),
-                          Padding(
-                            padding: const EdgeInsets.symmetric(
-                                vertical: defaultPadding),
-                            child: Text(
-                              "Knowledge",
-                              style: Theme.of(context).textTheme.subtitle2,
-                            ),
+                      Knowledges(),
+                      Divider(),
+                      SizedBox(height: defaultPadding / 2),
+                      TextButton(
+                        onPressed: () {},
+                        child: FittedBox(
+                          child: Row(
+                            children: [
+                              Text(
+                                'DOWNLOAD CV',
+                                style: TextStyle(
+                                    color: Theme.of(context)
+                                        .textTheme
+                                        .bodyText1!
+                                        .color),
+                              ),
+                              SizedBox(width: defaultPadding / 2),
+                              SvgPicture.asset('assets/icons/download.svg')
+                            ],
                           ),
-                          Knowledge(
-                            text: 'Android Studio',
-                          ),
-                          Knowledge(
-                            text: 'Flutter',
-                          ),
-                          Knowledge(
-                            text: 'Rest API',
-                          ),
-                        ],
+                        ),
                       ),
+                      Container(
+                        margin: EdgeInsets.only(top: defaultPadding),
+                        color: Color(0xFF24242E),
+                        child: Row(
+                          children: [
+                            Spacer(),
+                            IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                    'assets/icons/linkedin.svg')),
+                            IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                    'assets/icons/github.svg')),
+                            IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                    'assets/icons/twitter.svg')),
+                            IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                    'assets/icons/behance.svg')),
+                            IconButton(
+                                onPressed: () {},
+                                icon: SvgPicture.asset(
+                                    'assets/icons/dribble.svg')),
+                            Spacer(),
+                          ],
+                        ),
+                      )
                     ],
                   )))
-        ],
-      ),
-    );
-  }
-}
-
-class Knowledge extends StatelessWidget {
-  const Knowledge({
-    Key? key,
-    required this.text,
-  }) : super(key: key);
-
-  final String text;
-
-  @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: const EdgeInsets.only(bottom: defaultPadding / 2),
-      child: Row(
-        children: [
-          SvgPicture.asset('assets/icons/check.svg'),
-          SizedBox(width: defaultPadding / 2),
-          Text(text)
         ],
       ),
     );
