@@ -4,7 +4,6 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:ramadhan_portfolio/constants.dart';
 import 'package:ramadhan_portfolio/home/home_screen.dart';
-import 'package:ramadhan_portfolio/screens/main_screen.dart';
 
 void main() {
   runApp(MyApp());
